@@ -9,7 +9,7 @@ require 'faker'
 require 'rest-client'
 url = 'https://www.drupal-migration-2bz454a-2x4tlwgrfc56y.us-4.platformsh.site/api/post_api?page=1'
 response = RestClient.get(url);
-#   (1..2000).each do |id|
-#     @article = Article.new(title:Faker::Books::Lovecraft.tome, body:Faker::Books::Lovecraft.paragraphs)
-#     @article.save()
-#   end
+  (1..2000).each do |id|
+    @article = Article.new(title:Faker::Books::Lovecraft.tome, body:Faker::Books::Lovecraft.paragraphs)
+    @article.save()
+  end
