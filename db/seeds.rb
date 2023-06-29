@@ -1,0 +1,15 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+require 'rest-client'
+url = 'https://www.drupal-migration-2bz454a-2x4tlwgrfc56y.us-4.platformsh.site/api/post_api?page=1'
+response = RestClient.get(url);
+#   (1..2000).each do |id|
+#     @article = Article.new(title:Faker::Books::Lovecraft.tome, body:Faker::Books::Lovecraft.paragraphs)
+#     @article.save()
+#   end
