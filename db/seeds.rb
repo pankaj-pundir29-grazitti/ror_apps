@@ -5,11 +5,18 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'faker'
-require 'rest-client'
-url = 'https://www.drupal-migration-2bz454a-2x4tlwgrfc56y.us-4.platformsh.site/api/post_api?page=1'
-response = RestClient.get(url);
-  (1..2000).each do |id|
-    @article = Article.new(title:Faker::Books::Lovecraft.tome, body:Faker::Books::Lovecraft.paragraphs)
-    @article.save()
-  end
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+require 'net/http'
+require 'uri'
+require 'json'
+require 'openssl'
+uri = URI.parse("https://jsonplaceholder.typicode.com/todos/1")
+request = Net::HTTP::Get.new(uri)
+req_options = {
+  use_ssl: uri.scheme == "https",
+  verify_mode: OpenSSL::SSL::VERIFY_NONE,
+}
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+end
+p response.body.title

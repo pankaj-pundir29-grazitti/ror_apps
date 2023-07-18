@@ -1,11 +1,10 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Logster.set_environments([:development, :staging, :production])
 
 module Myapp
   class Application < Rails::Application
